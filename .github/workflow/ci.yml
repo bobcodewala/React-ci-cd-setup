@@ -1,17 +1,20 @@
-name: Commit Notification
+name : "sample react CI pipeline / workflow"
 
 on:
   push:
     branches:
-      - '**' # Triggers on any branch
+      - main
+      - master
 
-jobs:
-  echo-commit-message:
+jobs: 
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Echo new commit message
-        run: echo "New commit occurred"
+      - name: "Setup Node JS"
+        uses:  actions/setup-node@v4
+        with :
+          node-version : '21'
+          
+      - name : "Check node versiom"
+        run : node --version    
