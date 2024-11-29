@@ -1,0 +1,17 @@
+name: Commit Notification
+
+on:
+  push:
+    branches:
+      - '**' # Triggers on any branch
+
+jobs:
+  echo-commit-message:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Echo new commit message
+        run: echo "New commit occurred"
